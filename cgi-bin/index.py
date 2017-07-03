@@ -10,7 +10,6 @@ html = '''
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SWEB管理面板 - 首页</title>
-
 <!-- Bootstrap -->
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css">
 
@@ -108,7 +107,7 @@ html = '''
 				SSR链接:<br>
 				<textarea class="input-xlarge trololo" id="textarea" rows="3" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 16px; margin: 0px; width: 100%%; height: 50%%;">%s</textarea><br>
 				
-				二维码：<img src="http://qr.liantu.com/api.php?&w=150?&text=%s"/>
+				二维码：<div id="qrcode" style="height: 200px; width: 200px; display: block;"/>
 			</div>
 		</div>
 	</div>
@@ -132,6 +131,15 @@ html = '''
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="/js/jquery.qrcode.min.js"></script>
+<script>
+function SupportCanvas() {return !!document.createElement('canvas').getContext;}
+$('#qrcode').qrcode({
+	render: SupportCanvas()?"canvas":"table",
+	text: '%s',
+	width: 200,
+	height: 200});
+</script>
 </body>
 </html>
 '''
