@@ -94,15 +94,19 @@ html = '''
             <option>chacha20</option>
             <option>chacha20-ietf</option>
             <option>salsa20</option>
+			<option>aes-192-cfb8</option>
+			<option>aes-128-cfb8</option>
+			<option>aes-256-cfb8</option>
           </select><br><br>
 			<strong>协议方式:</strong><br><select name="setprotocol" class="trololo" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 16px;" data-enpassid="__813">
             <option>%s</option>
             <option>origin</option>
             <option>auth_sha1_v4</option>
-            <option>rc4-md5</option>
             <option>verify_deflate</option>
             <option>auth_aes128_sha1</option>
             <option>auth_aes128_md5</option>
+			<option>auth_chain_a</option>
+			<option>auth_chain_b</option>
           </select><br><br>
           <strong>混淆方式:</strong><br><select name="setobfs" class="trololo" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 16px;" data-enpassid="__813">
 			<option>%s</option>
@@ -110,6 +114,7 @@ html = '''
             <option>http_simple</option>
             <option>http_post</option>
             <option>tls1.2_ticket_auth</option>
+			<option>tls1.2_ticket_fastauth</option>
           </select>
         </div>
         <div class="col-md-3">

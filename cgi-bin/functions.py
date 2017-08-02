@@ -18,8 +18,12 @@ protocol=str(myjson[u"protocol"])
 protocol_param=str(myjson[u"protocol_param"])
 obfs=str(myjson[u"obfs"])
 obfs_param=str(myjson[u"obfs_param"])
-speed_limit_per_user=str(myjson[u"speed_limit_per_user"])
-speed_limit_per_con=str(myjson[u"speed_limit_per_con"])
+speed_limit_per_con=0
+speed_limit_per_user=0
+if myjson.has_key(u"speed_limit_per_user"):
+    speed_limit_per_user=str(myjson[u"speed_limit_per_user"])
+if myjson.has_key(u"speed_limit_per_con"):
+    speed_limit_per_con=str(myjson[u"speed_limit_per_con"])
 
 def openiptables(port):
     #拼接字符串，生成iptables命令
