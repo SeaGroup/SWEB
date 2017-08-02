@@ -2,12 +2,12 @@
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 #Disable China
-wget http://iscn.kirito.moe/run.sh
-. ./run.sh
-if [[ $area == cn ]];then
-echo "Unable to install in china"
-exit
-fi
+#wget http://iscn.kirito.moe/run.sh
+#. ./run.sh
+#if [[ $area == cn ]];then
+#echo "Unable to install in china"
+#exit
+#fi
 #Check Root
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
 
@@ -45,7 +45,7 @@ read -p "Please input your web password：" webpasswd
 
 
 #Install SSR (Powered By Teddysun : https://shadowsocks.be/9.html)
-wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/shadowsocks_install/master/shadowsocksR.sh
+wget -N --no-check-certificate https://raw.githubusercontent.com/snowie2000/shadowsocks_install/master/shadowsocksR.sh
 chmod +x shadowsocksR.sh
 bash shadowsocksR.sh
 rm -rf shadowsocksR.sh
@@ -80,7 +80,7 @@ rm -rf caddy_install.sh
 
 #Install SWEB
 cd /usr/local/
-git clone https://github.com/FunctionClub/SWEB
+git clone https://github.com/snowie2000/SWEB
 chmod +x /usr/local/SWEB/cgi-bin
 
 #Configure Caddy Proxy
@@ -91,7 +91,7 @@ echo ":80 {
 service caddy restart
 
 #Download SWEB Manager
-wget -N --no-check-certificate -O /usr/local/bin/sweb https://raw.githubusercontent.com/FunctionClub/SWEB/master/sweb
+wget -N --no-check-certificate -O /usr/local/bin/sweb https://raw.githubusercontent.com/snowie2000/SWEB/master/sweb
 chmod +x /usr/local/bin/sweb
 
 #Start SWEB in Screen
@@ -99,11 +99,11 @@ cd /usr/local/SWEB
 screen -dmS SWEB python CGIHTTPServer.py
 
 #Setup iptables rules
-iptables -I INPUT -p tcp --dport 8000 -j DROP
-iptables -I INPUT -s 127.0.0.1 -p tcp --dport 8000 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 32000 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 32000 -j ACCEPT
+#iptables -I INPUT -p tcp --dport 8000 -j DROP
+#iptables -I INPUT -s 127.0.0.1 -p tcp --dport 8000 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 32000 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 32000 -j ACCEPT
 
 #Setup V2ray
 bash <(curl -L -s https://install.direct/go.sh)
